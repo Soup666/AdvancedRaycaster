@@ -17,11 +17,16 @@ public:
 	
 	void update();
 	void pause(int s) { SDL_Delay(s); }
+	void handleEvents();
+
+	bool getShouldExit();
 
 private:
 	
 	SDL_Window* window = NULL;
 	SDL_Renderer* renderer = NULL;
+
+	bool shouldExit = false;
 	
 };
 

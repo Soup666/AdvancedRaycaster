@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../include/window.h"
 #include "../include/map.h"
+#include "../include/manager.h"
 
 using namespace std;
 
@@ -8,17 +9,13 @@ int main(int argc, char** argv) {
 
 	cout << "Hello World!\n";
 
-	Window window;
-	window.init();
+	Window* window = new Window();
 
-	Map map(&window);
-
-	map.drawBg();
-
-	window.update();
-	window.pause(3000);
-	window.cleanup();
+	Manager manager(window);
+	manager.init();
+	manager.loop();
 
 	return 0;
+
 }
 

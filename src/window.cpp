@@ -66,3 +66,17 @@ void Window::cleanup() {
     //Quit SDL subsystems
     SDL_Quit();
 }
+
+void Window::handleEvents() {
+	SDL_Event event;
+
+	while (SDL_PollEvent(&event)) {
+		switch (event.type) {
+			case SDL_QUIT:
+				shouldExit = true;
+				break;
+		}
+	}
+}
+
+bool Window::getShouldExit() { return shouldExit; }
